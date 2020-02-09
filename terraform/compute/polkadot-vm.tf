@@ -42,17 +42,10 @@ resource "google_compute_instance" "polkadot_vm" {
     }
   }
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "groupadd -r polkadot",
-  #     "useradd -m -r -g polkadot polkadot",
-  #     "usermod -aG sudo polkadot",
-  #   ]
-  # }
-
   metadata = {
     ssh-keys = "polkadot:${file(var.pub_key_path)}"
   }
+
   depends_on = ["google_compute_subnetwork.polkadot_subnet"]
 }
 
