@@ -1,0 +1,14 @@
+# ansible
+*.retry
+
+# terraform
+*.tfstate.*.backup
+*.tfstate.backup
+.terraform/
+errored.tfstate
+terraform.tfstate
+
+#google-cloud
+account.json
+
+*.log
