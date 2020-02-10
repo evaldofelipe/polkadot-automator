@@ -67,6 +67,27 @@ With a new project, and their respective Service Account, export your SA as a en
 $  export GCP_TOKEN=$(cat /path/to/your/key.json)
 ```
 
+Edit the `project_ID` on the Terraform and Ansible files, to grant the right communication with the GCP:
+
+For terraform, edit the file `terraform/variables.tf` the variable `project_name`
+```bash
+variable "project_name" {
+  description = "the project ID found at console"
+  default     = "YOUR-PROJECT-ID-HERE"
+}
+```
+
+For Ansible, edit the file `ansible/inventory.gcp.yml` the list `projects`
+
+```yaml
+---
+plugin: gcp_compute
+projects:
+  - YOUR-PROJECT-ID-HERE
+}
+```
+After this modifications, you're good to go!
+
 ## Deploy resources
 
 ### creating the infrastructure
