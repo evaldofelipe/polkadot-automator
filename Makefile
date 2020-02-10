@@ -92,6 +92,11 @@ ansible-playbook: guard-playbook
 				-t $(tags) \
 				-vvv
 
+.PHONY: provision-all
+provision-all: ##@provision all tools at once.
+	make ansible-playbook playbook=all
+
+
 # Default setup
 
 .PHONY: setup
