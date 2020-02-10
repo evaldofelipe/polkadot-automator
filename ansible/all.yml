@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+
+  vars:
+    - ansible_python_interpreter: "/usr/bin/python3"
+
+  roles:
+    - {role: common, tags: common}
+    - {role: docker, tags: docker}
+    - {role: polkadot-unit, tags: polkadot-unit}
+    - {role: node-exporter, tags: node-exporter}
+  # - {role: rust, tags: rust}
+  # - {role: polkadot, tags: polkadot}
