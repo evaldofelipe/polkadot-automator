@@ -8,3 +8,4 @@ common_default_packages:
   - sysstat
   - tcpdump
   - vim
+  - python3-pip
