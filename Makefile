@@ -72,12 +72,15 @@ terraform-fmt: ##@terraform Rewrite configuration files to a canonical format an
 build-all: ##@deploy all resources on GCP at once.
 	make terraform-init resource=main && \
 	make terraform-apply resource=main && \
+	make terraform-init resource=network && \
+	make terraform-apply resource=network && \
 	make terraform-init resource=compute && \
 	make terraform-apply resource=compute
 
 .PHONY: destroy-all
 destroy-all: ##@destroy all the resources GCP at once.
 	make terraform-destroy resource=compute && \
+  make terraform-destroy resource=network && \
 	make terraform-destroy resource=main
 
 # Ansbile commands
