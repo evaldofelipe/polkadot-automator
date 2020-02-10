@@ -3,6 +3,7 @@
 # Defaults variables
 resource-dir-terraform = /polkadot-automator/terraform/$(resource)
 resource-dir-ansible = /polkadot-automator/ansible
+tags ?= all
 
 # All the defaults configurations to use inside your container.
 base-docker-run = docker run \
