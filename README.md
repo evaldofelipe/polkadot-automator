@@ -63,7 +63,7 @@ ___
 **IMPORTANT:** On this automation we assume your ssh keys are stored at `$HOME/.ssh/` with the names `id_rsa` and `id_rsa.pub` if you're using other path, edit the path at `Makefile` on line `13`:
 
 ```bash
-	--volume $(HOME)/.ssh/:/home/polkadot/.ssh/:ro \
+--volume $(HOME)/.ssh/:/home/polkadot/.ssh/:ro \
 ```
 
 With a new project, and their respective Service Account, export your SA as a env variable.
