@@ -88,6 +88,7 @@ ansible-playbook: guard-playbook
 			ansible-playbook $(playbook).yml \
 				-i inventory.gcp.yml \
 				-u polkadot \
+				-t $(tags) \
 				-vvv
 
 # Default setup
