@@ -1,0 +1,10 @@
+common_default_packages:
+  - curl
+  - gcc
+  - htop
+  - iftop
+  - ngrep
+  - software-properties-common
+  - sysstat
+  - tcpdump
+  - vim
