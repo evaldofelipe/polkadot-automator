@@ -88,7 +88,7 @@ destroy-all: ##@destroy all the resources GCP at once.
 .PHONY: ansible-playbook
 ansible-playbook: guard-playbook
 	@echo "Provisioning environment with ansible..."
-	 $(ansible-docker-run) \
+	@$(ansible-docker-run) \
 			ansible-playbook $(playbook).yml \
 				-i inventory.gcp.yml \
 				-u polkadot \
