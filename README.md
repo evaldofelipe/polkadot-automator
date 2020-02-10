@@ -1,6 +1,6 @@
 # Polkadot automator
 
-This project automate the deploy and provisioning of a polkadot node on Google Cloud, and attach on Kusama network. Basically are used [Terraform](https://www.terraform.io) to provide the structure at the GCP, [Ansible](https://www.ansible.com) to execute playbooks and install required softwares over the VM, and [Docker](https://www.docker.com) to abstract all tools and don't blow up your localhost.
+This project automate the deploy and provisioning of a [polkadot](https://polkadot.network) node on Google Cloud, and attach on Kusama network. Basically are used [Terraform](https://www.terraform.io) to provide the structure at the GCP, [Ansible](https://www.ansible.com) to execute playbooks and install required softwares over the VM, and [Docker](https://www.docker.com) to abstract all tools and don't blow up your localhost.
 
 ## Prerequisites
 
