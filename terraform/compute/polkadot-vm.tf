@@ -24,7 +24,7 @@ resource "google_compute_subnetwork" "polkadot_subnet" {
 
 resource "google_compute_instance" "polkadot_vm" {
   name         = "polkadot-vm"
-  machine_type = "n1-standard-1"
+  machine_type = "n1-highcpu-8"
   zone         = "${var.location}"
 
   boot_disk {
