@@ -86,6 +86,14 @@ projects:
   - YOUR-PROJECT-ID-HERE
 }
 ```
+
+Choose the number of polkadots nodes you want deploy, and their respective names at `ansible/all.yml`
+
+```yaml
+- polkadot_node_name: "YOUR-POLKADOT-NODE-NAME-HERE"
+- polkadot_node_count: 4
+```
+
 After this modifications, you're good to go!
 
 ## Deploy resources
@@ -108,4 +116,13 @@ $ make provision-all
 
 ## Check service status
 
-You could check you polkadot node running with the name `Little_Polkadot_automator_test` on the polkadot network telemetry [here](https://telemetry.polkadot.io/). Just ensure you have selected the Kusama network to find your node.
+You could check you polkadot node running with the name you have choosed on the polkadot network telemetry [here](https://telemetry.polkadot.io/). Just ensure you have selected the Kusama network to find your node.
+
+
+## Destroy the infrastructure
+
+After realize your tests, you can destroy everything just running:
+
+```bash
+$ make destroy-all
+```
