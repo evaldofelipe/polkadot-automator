@@ -72,18 +72,18 @@ terraform-fmt: ##@terraform Rewrite configuration files to a canonical format an
 
 .PHONY: build-all
 build-all: ##@deploy all resources on GCP at once.
-	make terraform-init resource=main && \
-	make terraform-apply resource=main && \
-	make terraform-init resource=network && \
-	make terraform-apply resource=network && \
-	make terraform-init resource=compute && \
-	make terraform-apply resource=compute
+	@make terraform-init resource=main && \
+	 make terraform-apply resource=main && \
+	 make terraform-init resource=network && \
+	 make terraform-apply resource=network && \
+	 make terraform-init resource=compute && \
+	 make terraform-apply resource=compute
 
 .PHONY: destroy-all
 destroy-all: ##@destroy all the resources GCP at once.
-	make terraform-destroy resource=compute && \
-  make terraform-destroy resource=network && \
-	make terraform-destroy resource=main
+	@make terraform-destroy resource=compute && \
+   make terraform-destroy resource=network && \
+	 make terraform-destroy resource=main
 
 # Ansbile commands
 
@@ -99,7 +99,8 @@ ansible-playbook: guard-playbook
 
 .PHONY: provision-all
 provision-all: ##@provision all tools at once.
-	make ansible-playbook playbook=all
+	@make ansible-playbook playbook=init-inventory && \
+	 make ansible-playbook playbook=all
 
 
 # Default setup
