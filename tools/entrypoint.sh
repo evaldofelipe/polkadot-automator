@@ -9,6 +9,11 @@ if [[ -z ${GCP_TOKEN} ]]; then
     exit 1
 fi
 
+if [[ -z ${PROJECT} ]]; then
+    echo "Error: You need export PROJECT variable"
+    exit 1
+fi
+
 mkdir -p /tmp/.gcp
 echo ${GCP_TOKEN} | jq . > ${credentials_file}
 
