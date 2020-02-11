@@ -1,6 +1,12 @@
 # Polkadot automator
 
-This project automate the deploy and provisioning of a [polkadot](https://polkadot.network) node on Google Cloud, and attach on Kusama network. Basically are used [Terraform](https://www.terraform.io) to provide the structure at the GCP, [Ansible](https://www.ansible.com) to execute playbooks and install required softwares over the VM, and [Docker](https://www.docker.com) to abstract all tools and don't blow up your localhost.
+This project automates the deploy and provisioning of a [Polkadot](https://polkadot.network) node on Google Cloud, and attach on Kusama network.
+
+## Tools
+
+- [Terraform](https://www.terraform.io) provide the structure at the GCP.
+- [Ansible](https://www.ansible.com) execute playbooks and install required softwares over the VM.
+- [Docker](https://www.docker.com) abstract all tools and don't blow up your localhost.
 
 ## Prerequisites
 
@@ -33,7 +39,7 @@ You can create your free account [here](https://cloud.google.com/free).
 **IMPORTANT:**
 Choose a project name as you want, and store the `project_ID` not the project name! You'll use later on the project.
 
-- After the project was created, we need interact with GCP using a Service Account, an key file provide to use cloud API's. Follow [this](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) guide to create the Service Account, download the json file, and store the file on a security place. Ansible and terraform will use this key to interact with GCP.
+- After the project was created, we need interact with GCP using a Service Account, an key file provide to use cloud API's. Follow [this](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) guide to create the Service Account, with Owner/Owner permissions, download the json file (the create key button are just a bit hide!), and store the file on a security place. Ansible and terraform will use this key to interact with GCP.
 
 - On this automation are possible to choose the region where your VM are deployed, but as a new GCP user, I recommend, don't worry about it, and use the default region already set here.
 
@@ -50,7 +56,7 @@ ___
 
 - Create the project and store and store the `project_ID`. You'll use later on the project.
 
-- Create a Service Account on the new project, download the json, and store the file on a security place. Ansible and terraform will use this key to interact with GCP.
+- Create a Service Account on the new project, with Owner/Owner permissions, download the json, and store the file on a security place. Ansible and terraform will use this key to interact with GCP.
 
 - If you want change the default Region and Zones defined here, just keep in mind to don't forget to select the right variables. If you need, take a look on the regions [list](https://cloud.google.com/compute/docs/regions-zones).
 
@@ -66,31 +72,12 @@ ___
 --volume $(HOME)/.ssh/:/home/polkadot/.ssh/:ro \
 ```
 
-With a new project, and their respective Service Account, export your SA as a env variable.
+With a new project, and their respective Service Account, export your SA as a env variable, and the project ID.
 
 
 ```bash
 $  export GCP_TOKEN=$(cat /path/to/your/key.json)
-```
-
-Edit the `project_ID` on the Terraform and Ansible files, to grant the right communication with the GCP:
-
-For terraform, edit the file `terraform/variables.tf` the variable `project_name`
-```bash
-variable "project_name" {
-  description = "the project ID found at console"
-  default     = "YOUR-PROJECT-ID-HERE"
-}
-```
-
-For Ansible, edit the file `ansible/inventory.gcp.yml` the list `projects`
-
-```yaml
----
-plugin: gcp_compute
-projects:
-  - YOUR-PROJECT-ID-HERE
-}
+$  export PROJECT="your-project-ID"
 ```
 
 Choose the number of polkadots nodes you want deploy, and their respective names at `ansible/all.yml`
