@@ -1,9 +1,0 @@
----
-plugin: gcp_compute
-projects:
-  - polkadot-267705
-zones:
-  - "us-east1-b"
-filters: []
-auth_kind: serviceaccount
-service_account_file: "/tmp/.gcp/credentials.json"
