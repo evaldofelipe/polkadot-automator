@@ -8,6 +8,8 @@ tags ?= all
 # All the defaults configurations to use inside your container.
 base-docker-run = docker run \
 	--env GCP_TOKEN \
+  --env PROJECT \
+	--env TF_VAR_project=$(PROJECT) \
 	--rm \
 	--volume $(shell pwd):/polkadot-automator \
 	--volume $(HOME)/.ssh/:/home/polkadot/.ssh/:ro \
