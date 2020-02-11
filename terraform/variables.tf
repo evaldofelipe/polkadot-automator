@@ -10,9 +10,8 @@ variable "subnet_location" {
   default     = "us-east1"
 }
 
-variable "project_name" {
-  description = "the project ID found at console"
-  default     = "polkadot-267705"
+variable "project" {
+  default = ""
 }
 
 variable "cidr_allowed" {

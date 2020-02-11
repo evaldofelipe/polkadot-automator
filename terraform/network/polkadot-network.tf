@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "${var.project_name}"
+  project     = "${var.project}"
   region      = "${var.location}"
   credentials = "${file("/tmp/.gcp/credentials.json")}"
 }
@@ -24,7 +24,7 @@ resource "google_compute_subnetwork" "polkadot_subnet" {
 
 resource "google_compute_firewall" "firewall_ssh" {
   name    = "allow-ssh-from-specified-cidr-range"
-  project = "${var.project_name}"
+  project = "${var.project}"
   network = "vpc-polkadot-network"
 
   allow {
